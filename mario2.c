@@ -15,27 +15,23 @@ int get_positive_int(void);
 
 int main(void)
 {
-    int i, j, k = 0;
+    int i, j, k, l = 0;
     int height = get_positive_int();
     
     for(i=1; i<=height; i++)
     {
-        for(j=0; j<height-i+1; j++)
+        for(j=0; j<height-i; j++)
         {
             printf(" ");
         }
-        for(k=0; k<i+1; k++)
+        for(k=0; k<i; k++)
         {
             printf("#");
         }
-        printf(" ");
-        for(k=0; k<i+1; k++)
+        printf("  ");
+        for(l=0; l<i; l++)
         {
             printf("#");
-        }
-        for(j=0; j<height-i+1; j++)
-        {
-            printf(" ");
         }
         printf("\n");
     }
@@ -51,6 +47,6 @@ int get_positive_int(void)
         printf("Enter height: ");
         height = get_int();
     }
-    while((height > 8) || (height < 0));
+    while((height > 23) || (height < 0));
     return height;
 }

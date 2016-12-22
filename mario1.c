@@ -20,7 +20,7 @@ int main(void)
     
     for(i=1; i<=height; i++)
     {
-        for(j=0; j<height-i+1; j++)
+        for(j=0; j<height-i; j++)
         {
             printf(" ");
         }
@@ -42,6 +42,6 @@ int get_positive_int(void)
         printf("Enter height: ");
         height = get_int();
     }
-    while((height > 8) || (height < 0));
+    while((height > 23) || (height < 0));
     return height;
 }
