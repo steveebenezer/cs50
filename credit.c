@@ -49,8 +49,6 @@ int main(void)
 
 int checksum(long long cc, int len)
 {
-    
-    // Add and multiply every other digit
     int buffer[len], i;
     int sum = 0;
     
