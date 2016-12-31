@@ -52,7 +52,7 @@ int checksum(long long cc, int len)
     
     // Add and multiply every other digit
     int buffer[len], i;
-    int lastDigitSum = 0, totalSum = 0;
+    int sum = 0;
     
     // Store each digit of card into array
     for(i=0;i<len;i++)
@@ -65,10 +65,10 @@ int checksum(long long cc, int len)
     {
         if(i%2) {
             if(buffer[i]<5) {
-                lastDigitSum += buffer[i] * 2;
+                sum += buffer[i] * 2;
             } else {
                 // Split and Add, if number * 2 is > 9
-                lastDigitSum += (buffer[i] * 2) - 9;
+                sum += (buffer[i] * 2) - 9;
             }
         } else {
             continue;
@@ -79,15 +79,14 @@ int checksum(long long cc, int len)
     for(i=0;i<len;i++)
     {
         if(!(i%2)) {
-            totalSum += buffer[i];
+            sum += buffer[i];
         } else {
             continue;
         }
     }
-    totalSum += lastDigitSum;
     
     // Check if the sum's last digit is 0
-    int valid = totalSum % 10;
+    int valid = sum % 10;
     
     // Store the first two digits of card
     int startDigit = buffer[len-2] + buffer[len-1]*10;
